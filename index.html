@@ -26,11 +26,11 @@
         <div id="screen">
           <section id="menu" class="card">
             <h1>keys</h1>
-            <p>A piano game website that works solely through keyboard.(no tab tho)</p>
+            <p>A piano game website that works solely through keyboard.<br>(no tab tho)</p>
             <div class="menu">
-              <div class="option selected" data-mode="songs"><b>[1]</b> song mode - play the falling notes</div>
-              <div class="option" data-mode="free"><b>[2]</b> free play - turn your keyboard into a piano</div>
-              <div class="option" data-mode="how"><b>[3]</b> how to play</div>
+              <div class="option selected" data-mode="songs"><b>1.</b> Song mode - play the falling notes</div>
+              <div class="option" data-mode="free"><b>2.</b> Free play - turn your keyboard into a piano</div>
+              <div class="option" data-mode="how"><b>3.</b> How to play</div>
             </div>
             <p>press <i class="ri-arrow-up-line"></i> or <i class="ri-arrow-down-line"></i> to choose. press Enter to select</p>
           </section>
@@ -41,9 +41,36 @@
             <p>Black key notes: <b>W E T Y U</b></p>
             <p>press Enter to return.</p>
           </section>
+          <section id="results" class="card hidden">
+            <h1>song complete</h1>
+            <div class="big" id="finalScore">0</div>
+            <div class="results">
+              <div class="result">
+                <small>accuracy</small>
+                <b id="finalAccuracy">0%</b>
+              </div>
+              <div class="result">
+                <small>max combo</small>
+                <b id="finalCombo">0</b>
+              </div>
+              <div class="result">
+                <small>perfect</small>
+                <b id="finalPerfect">0</b>
+              </div>
+            </div>
+            <p>Enter = play again, Esc = menu</p>
+          </section>
         </div>
       </main>
-      <footer></footer>
+      <footer>
+        <div class="help">
+          <strong>a s d f g h j k</strong>
+          piano - <strong>w e t y u</strong>
+          black keys - <strong>esc</strong>
+          menu - <strong>r</strong>
+          restart
+        </div>
+      </footer>
     </div>
     <script src="./scripts/script.js"></script>
   </body>
