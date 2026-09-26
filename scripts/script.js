@@ -16,7 +16,7 @@
 		(e) => {
 			if (
 				e.key === "Tab" ||
-				["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", ""].includes(e.key)
+				["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(e.key)
 			)
 				e.preventDefault();
 		},
@@ -32,7 +32,7 @@
 		s: 293.665,
 		e: 311.127,
 		d: 329.628,
-		f: 349.994,
+		f: 349.228,
 		t: 369.994,
 		g: 391.995,
 		y: 415.305,
@@ -41,7 +41,7 @@
 		j: 493.883,
 		k: 523.251,
 	};
-	const all = { ...white, ...black };
+	const all = [...white, ...black];
 	const keys = document.getElementById("keys");
 	all.forEach((k) => {
 		const el = document.createElement("div");
@@ -53,12 +53,8 @@
 	const audio = new (window.AudioContext || window.webkitAudioContext)();
 	const active = new Map();
 	function sound(k) {
-		if (audio.state === "suspended") {
-			audio.resume();
-		}
-		if (active.has(k)) {
-			return;
-		}
+		if (audio.state === "suspended") audio.resume();
+		if (active.has(k)) return;
 		const o = audio.createOscillator(),
 			g = audio.createGain();
 		o.type = "triangle";
@@ -70,19 +66,13 @@
 		o.start();
 		o.stop(audio.currentTime + 0.68);
 		active.set(k, o);
-		setTimeout(() => {
-			active.delete(k);
-		}, 700);
+		setTimeout(() => active.delete(k), 700);
 	}
 	function flash(k) {
 		const el = document.getElementById("key-" + k);
-		if (!el) {
-			return;
-		}
+		if (!el) return;
 		el.classList.add("down");
-		setTimeout(() => {
-			el.classList.remove("down");
-		}, 120);
+		setTimeout(() => el.classList.remove("down"), 120);
 	}
 	let mode = "menu",
 		selected = 0,
@@ -144,9 +134,7 @@
 		const j = document.getElementById("judge");
 		j.textContent = t;
 		j.className = "judge show";
-		setTimeout(() => {
-			j.className = "judge";
-		}, 400);
+		setTimeout(() => (j.className = "judge"), 400);
 	}
 	function makeNote(k, time) {
 		const n = document.createElement("div");
@@ -186,15 +174,11 @@
 		);
 	}
 	function loop(now = performance.now()) {
-		if (!running) {
-			return;
-		}
+		if (!running) return;
 		const speed = 0.42;
 		const hitY = document.getElementById("game").clientHeight - 78;
 		for (const n of notes) {
-			if (n.hit) {
-				continue;
-			}
+			if (n.hit) continue;
 			const dt = n.time - now;
 			const y = hitY - dt * speed - 20;
 			n.el.style.top = y + "px";
@@ -232,16 +216,12 @@
 	function hit(k) {
 		sound(k);
 		flash(k);
-		if (!running || mode !== "songs") {
-			return;
-		}
+		if (!running || mode !== "songs") return;
 		let best = null,
 			bestD = Infinity,
 			now = performance.now();
 		for (const n of notes) {
-			if (n.hit || n.key !== k) {
-				continue;
-			}
+			if (n.hit || n.key !== k) continue;
 			const d = Math.abs(n.time - now);
 			if (d < bestD) {
 				best = n;
@@ -272,9 +252,7 @@
 	}
 	document.addEventListener("keydown", (e) => {
 		const k = e.key.toLowerCase();
-		if (e.repeat) {
-			return;
-		}
+		if (e.repeat) return;
 		if (k === "escape") {
 			cancelAnimationFrame(raf);
 			running = false;
@@ -286,7 +264,7 @@
 			return;
 		}
 		if (!document.getElementById("screen").classList.contains("hidden")) {
-			if (mode === "mode" || document.querySelector("#menu:not(.hidden)")) {
+			if (mode === "menu" || document.querySelector("#menu:not(.hidden)")) {
 				if (k === "arrowdown") {
 					menuIndex = (menuIndex + 1) % 3;
 					menuRender();
@@ -296,18 +274,16 @@
 					menuRender();
 				}
 				if (k === "enter") {
-					if (menuIndex === 0) {
-						start();
-					} else if (menuIndex === 1) {
-						free();
-					} else {
+					if (menuIndex === 0) start();
+					else if (menuIndex === 1) free();
+					else {
 						show(how);
 						mode = "how";
 					}
 				}
 				return;
 			}
-			if (!results.classList.contains(".hidden") && k === "enter") {
+			if (!results.classList.contains("hidden") && k === "enter") {
 				start();
 				return;
 			}
@@ -322,9 +298,7 @@
 			start();
 			return;
 		}
-		if (all.includes(k)) {
-			hits(k);
-		}
+		if (all.includes(k)) hit(k);
 	});
 	menuRender();
 })();

@@ -1,290 +1,289 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  text-decoration: none;
-  list-style: none;
-  scroll-behavior: smooth;
-  /*outline: 1px dotted red;*/
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
 }
 
 html,
 body {
-  height: 100%;
+  margin: 0;
   width: 100%;
-  color: var(--text);
-  background-color: var(--bg);
+  height: 100%;
   overflow: hidden;
-  user-select: none;
-  cursor: pointer;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
 }
 
 :root {
-  --bg: #071018;
-  --panel: #0d1a24;
-  --line: #244404d;
-  --text: #e8fbff;
-  --muted: #7f9aa5;
-  --accent: #61dafb;
-  --good: #74f0b0;
-  --bad: #ff6b7a;
-  --gold: #ffd166;
+	--bg: #F7F5F0;
+	--panel: #171512
+	--line: #D8D3C8;
+	--text: #171512;
+	--muted: #756F66;
+	--accent: #F28C28;
+	--good: #3E8E5B;
+	--bad: #D94A3D;
+	--gold: #D97706;
 }
 
-button, a, input {
-  outline: none;
+body {
+	cursor: none;
+	user-select: none;
 }
 
 button {
-  font: inherit;
+	font: inherit;
 }
 
 #app {
-  height: 100%;
-  display: grid;
-  grid-template-rows: 58px 1fr 130px;
+	height: 100%;
+	display: grid;
+	grid-template-rows: 58px 1fr 130px;
 }
 
 .top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
-  border-bottom: 1px solid var(--line);
-  background: #09151e;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 24px;
+	border-bottom: 1px solid var(--line);
+	background: #F0EDE6;
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: 700;
-  text-transform: capitalize;
+	font-weight: 900;
 }
 
 .status {
-  display: flex;
-  gap: 22px;
-  font-size: 14px;
-  text-transform: uppercase;
-  color: var(--muted);
+	display: flex;
+	gap: 22px;
+	color: #171512;
+	font-size: 12px;
 }
 
 .status b {
-  color: var(--text);
+	color: var(--text);
 }
 
 #game {
-  position: relative;
-  overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
 
 .lane {
-  position: absolute;
-  inset: 0 8%;
-  border-left: 1px solid #18303a;
-  border-right: 1px solid #18303a;
-  background: repeating-linear-gradient(90deg, transparent 0, transparent calc(12.5% - 1px), #102832 calc(12.5% - 1px)), #102832 12.5%;
+	position: absolute;
+	inset: 0 8% 0 8%;
+	border-left: 1px solid #D9D4CA;
+	border-right: 1px solid #D9D4CA;
+	background: repeating-linear-gradient(
+		90deg,
+		transparent 0,
+		transparent calc(12.5% - 1px),
+		var(--accent) calc(12.5% - 1px),
+		var(--accent) 12.5%
+	);
 }
 
 #notes {
-  position: absolute;
-  inset: 0 8%;
-  overflow: hidden;
+	position: absolute;
+	inset: 0 8% 0 8%;
+	overflow: hidden;
 }
 
 .note {
-  position: absolute;
-  height: 20px;
-  border-radius: 6px;
-  box-shadow: 0 0 18px currentColor;
-  transition: opacity 0.08s;
+	position: absolute;
+	height: 20px;
+	border-radius: 6px;
+	box-shadow: 0 0 18px currentColor;
+	transition: opacity 0.08s;
 }
 
 .note.hit {
-  opacity: 0;
+	opacity: 0;
 }
 
 .judge {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 95px;
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-align: center;
-  opacity: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 95px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 900;
+	letter-spacing: 0.12em;
+	opacity: 0;
 }
 
 .judge.show {
-  animation: judge 0.45s ease forwards;
+	animation: judge 0.45s ease forwards;
 }
 
 @keyframes judge {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  } 25% {
-    opacity: 1;
-  } 100% {
-    transform: scale(1.15);
-    opacity: 0;
-  }
+	0% {
+		transform: scale(0.8);
+		opacity: 0;
+	}
+
+	25% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(1.15);
+		opacity: 0;
+	}
 }
 
 #target {
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  bottom: 72px;
-  height: 6px;
-  box-shadow: 0 0 18px var(--accent);
-  background: var(--accent);
+	position: absolute;
+	left: 8%;
+	right: 8%;
+	bottom: 72px;
+	height: 6px;
+	background: var(--accent);
+	box-shadow: 0 0 18px var(--accent);
 }
 
 #keys {
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  bottom: 0;
-  height: 72px;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 4px;
+	position: absolute;
+	left: 8%;
+	right: 8%;
+	bottom: 0;
+	height: 72px;
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	gap: 4px;
 }
 
 .key {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: 900;
-  border: 1px solid #35515c;
-  color: var(--muted);
-  background: #12242d;
+	border: 1px solid #8F877A;
+	background: #D6D0C5;
+	/* color: var(--text); */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 900;
+	font-size: 16px;
+	position: relative;
 }
 
 .key::after {
-  content: attr(data-note);
-  position: absolute;
-  bottom: 7px;
-  font-size: 10px;
-  color: #57717b;
+	content: attr(data-note);
+	position: absolute;
+	bottom: 7px;
+	font-size: 10px;
+	/* color: var(--text); */
 }
 
 .key.down {
-  box-shadow: inset 0 0 0 2px var(--accent), 0 -8px 30px #61dafb55;
-  color: #fff;
-  background: #214654;
-  transform: translateY(2px);
+	background: #D8D1C5;
+	color: var(--text);
+	box-shadow:
+    inset 0 0 0 2px var(--accent),
+		0 -8px 30px #F28C2855;
+	transform: translateY(2px);
 }
 
 .bottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  border-top: 1px solid var(--line);
-  background: #09151e;
+	border-top: 1px solid var(--line);
+	background: #F0EDE6;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 28px;
 }
 
 .help {
-  font-size: 11px;
-  line-height: 1.7;
-  text-align: center;
-  color: var(--muted);
+	text-align: center;
+	color: #171512;
+	font-size: 11px;
+	line-height: 1.7;
 }
 
 .help strong {
-  text-transform: capitalize;
-  color: var(--text);
+	color: var(--text);
 }
 
 #screen {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #071018ee;
-  z-index: 10;
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #F7F5F0EE;
+	z-index: 10;
 }
 
 .card {
-  width: min(620px, 90vw);
-  padding: 34px;
-  text-align: center;
-  box-shadow: 0 20px 80px #0008;
-  border: 1px solid var(--line);
-  background: var(--panel);
+	width: min(620px, 90vw);
+	border: 1px solid var(--line);
+	background: var(--panel);
+	padding: 34px;
+	text-align: center;
+	box-shadow: 0 20px 80px #00000018;
+  border: 1px solid var(--muted);
+  border-radius: 20px;
+  background-color: #F7F5F0EE;
 }
 
 .card h1 {
-  margin: 0 0 8px;
-  font-size: 36px;
-  font-weight: 500;
-  text-transform: capitalize;
+	margin: 0 0 8px;
+	font-size: 36px;
 }
 
 .card p {
-  line-height: 1.6;
-  color: var(--muted);
-}
-
-.card p b {
-  text-transform: capitalize;
+	color: #171512;
+	line-height: 1.6;
 }
 
 .menu {
-  margin-top: 24px;
-  display: grid;
-  gap: 8px;
-}
-
-.menu {
-  margin-bottom: 12px;
+	margin-top: 24px;
+	display: grid;
+	gap: 8px;
 }
 
 .option {
-  padding: 13px;
-  border: 1px solid #294651;
-  color: var(--text);
+	padding: 13px;
+	border: 1px solid #C8C0B3;
+  border-radius: 10px;
+	color: var(--text);
+}
+
+.option b {
+	color: var(--accent);
 }
 
 .selected {
-  border-color: var(--accent);
-  background: #102b37;
+	border-color: var(--accent);
+	background: #FFF0DE;
 }
 
 .hidden {
-  display: none;
+	display: none;
 }
 
 .big {
-  font-size: 52px;
-  font-weight: 900;
-  color: var(--gold);
+	font-size: 52px;
+	font-weight: 900;
+	color: var(--gold);
 }
 
 .results {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin: 24px 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	margin: 24px 0;
 }
 
 .result {
-  padding: 15px;
-  border: 1px solid var(--line);
+	border: 1px solid var(--line);
+	padding: 15px;
 }
 
 .result small {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--muted);
+	display: block;
+	color: #171512;
+	margin-bottom: 6px;
 }

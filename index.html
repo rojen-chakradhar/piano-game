@@ -10,11 +10,11 @@
   <body>
     <div id="app">
       <header class="top">
-        <div class="logo">piano game</div>
+        <div class="logo">Piano Game</div>
         <div class="status">
-          <span>score <b id="score">0</b></span>
-          <span>combo <b id="combo">0</b></span>
-          <span>accuracy <b id="accuracy">100%</b></span>
+          <span>Score <b id="score">0</b></span>
+          <span>Combo <b id="combo">0</b></span>
+          <span>Accuracy <b id="accuracy">100%</b></span>
         </div>
       </header>
       <main id="game">
@@ -25,51 +25,35 @@
         <div id="judge" class="judge"></div>
         <div id="screen">
           <section id="menu" class="card">
-            <h1>keys</h1>
+            <h1>Piano</h1>
             <p>A piano game website that works solely through keyboard.<br>(no tab tho)</p>
             <div class="menu">
-              <div class="option selected" data-mode="songs"><b>1.</b> Song mode - play the falling notes</div>
-              <div class="option" data-mode="free"><b>2.</b> Free play - turn your keyboard into a piano</div>
+              <div class="option selected" data-mode="songs"><b>1.</b> Song mode. play the falling notes</div>
+              <div class="option" data-mode="free"><b>2.</b> Free play. turn your keyboard into a piano</div>
               <div class="option" data-mode="how"><b>3.</b> How to play</div>
             </div>
-            <p>press <i class="ri-arrow-up-line"></i> or <i class="ri-arrow-down-line"></i> to choose. press Enter to select</p>
+            <p><i class="ri-arrow-up-line"></i><i class="ri-arrow-down-line"></i> to choose, and ENTER to select</p>
           </section>
           <section id="how" class="card hidden">
-            <h1>how to play</h1>
-            <p><b>a s d f g h j k</b><br>are the piano keys.<br>Hit the matching key when a note reaches the cyan line.<br>
-            <b><i class="ri-arrow-up-line"></i><i class="ri-arrow-down-line"></i></b> select - <b>Enter</b> start - <b>Esc</b> menu - <b>R</b> restart</p>
-            <p>Black key notes: <b>W E T Y U</b></p>
-            <p>press Enter to return.</p>
+            <h1>How to play</h1>
+            <p><b>A S D F G H J K</b>are the piano keys.<br>Hit the matching key when a note reaches the baige line.<br><b><i class="ri-arrow-up-line"></i><i class="ri-arrow-down-line"></i></b> select<br><b>ENTER</b> start<br><b>ESC</b> menu<br><b>R</b> restart</p>
+            <p>Black key notes: <b>W E T Y U</b>.</p>
+            <p>Press ENTER to return.</p>
           </section>
           <section id="results" class="card hidden">
-            <h1>song complete</h1>
+            <h1>Song commplete</h1>
             <div class="big" id="finalScore">0</div>
             <div class="results">
-              <div class="result">
-                <small>accuracy</small>
-                <b id="finalAccuracy">0%</b>
-              </div>
-              <div class="result">
-                <small>max combo</small>
-                <b id="finalCombo">0</b>
-              </div>
-              <div class="result">
-                <small>perfect</small>
-                <b id="finalPerfect">0</b>
-              </div>
+              <div class="result"><small>ACCURACY</small><b id="finalAccuracy">0%</b></div>
+              <div class="result"><small>MAX COMBO</small><b id="finalCombo">0</b></div>
+              <div class="result"><small>PERFECT</small><b id="finalPerfect">0</b></div>
             </div>
-            <p>Enter = play again, Esc = menu</p>
+            <p>ENTER = play again, ESC = menu</p>
           </section>
         </div>
       </main>
-      <footer>
-        <div class="help">
-          <strong>a s d f g h j k</strong>
-          piano - <strong>w e t y u</strong>
-          black keys - <strong>esc</strong>
-          menu - <strong>r</strong>
-          restart
-        </div>
+      <footer class="bottom">
+        <div class="help"><strong>A S D F G H J K</strong> piano, <strong>W E T Y U</strong> black keys, <strong>ESC</strong> menu, and <strong>R</strong>restart</div>
       </footer>
     </div>
     <script src="./scripts/script.js"></script>
