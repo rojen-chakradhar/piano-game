@@ -17,4 +17,21 @@ html,
 body {
   height: 100%;
   width: 100%;
+  color: var(--text);
+  background-color: var(--bg);
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+}
+
+:root {
+  --bg: #071018;
+  --panel: #0d1a24;
+  --line: #244404d;
+  --text: #e8fbff;
+  --muted: #7f9aa5;
+  --accent: #61dafb;
+  --good: #74f0b0;
+  --bad: #ff6b7a;
+  --gold: #ffd166;
 }
