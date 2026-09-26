@@ -8,13 +8,43 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
   </head>
   <body>
-    <header>
-      <h1>piano game</h1>
-    </header>
-    <main>
-      <section></section>
-    </main>
-    <footer></footer>
+    <div id="app">
+      <header class="top">
+        <div class="logo">piano game</div>
+        <div class="status">
+          <span>score <b id="score">0</b></span>
+          <span>combo <b id="combo">0</b></span>
+          <span>accuracy <b id="accuracy">100%</b></span>
+        </div>
+      </header>
+      <main id="game">
+        <div class="lane"></div>
+        <div id="notes"></div>
+        <div id="target"></div>
+        <div id="keys"></div>
+        <div id="judge" class="judge"></div>
+        <div id="screen">
+          <section id="menu" class="card">
+            <h1>keys</h1>
+            <p>A piano game website that works solely through keyboard.(no tab tho)</p>
+            <div class="menu">
+              <div class="option selected" data-mode="songs"><b>[1]</b> song mode - play the falling notes</div>
+              <div class="option" data-mode="free"><b>[2]</b> free play - turn your keyboard into a piano</div>
+              <div class="option" data-mode="how"><b>[3]</b> how to play</div>
+            </div>
+            <p>press <i class="ri-arrow-up-line"></i> or <i class="ri-arrow-down-line"></i> to choose. press Enter to select</p>
+          </section>
+          <section id="how" class="card hidden">
+            <h1>how to play</h1>
+            <p><b>a s d f g h j k</b><br>are the piano keys.<br>Hit the matching key when a note reaches the cyan line.<br>
+            <b><i class="ri-arrow-up-line"></i><i class="ri-arrow-down-line"></i></b> select - <b>Enter</b> start - <b>Esc</b> menu - <b>R</b> restart</p>
+            <p>Black key notes: <b>W E T Y U</b></p>
+            <p>press Enter to return.</p>
+          </section>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
     <script src="./scripts/script.js"></script>
   </body>
 </html>
